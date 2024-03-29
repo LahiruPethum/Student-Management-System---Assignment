@@ -27,7 +27,7 @@ const students = ref(props.students);
                         <h2>Students Table</h2>
                     </div>
                     <div class="card-body">
-                        <Link href="#" class="btn btn-success btn-sm" title="Add New Student">
+                        <Link href="/student/create" class="btn btn-success btn-sm" title="Add New Student">
                         <i class="fa fa-plus" aria-hidden="true"></i> Add New
                         </Link>
 
@@ -66,11 +66,14 @@ const students = ref(props.students);
                                                 <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit
                                             </button>
                                             </Link>
-                                            <form method="" accept-charset="UTF-8" style="display:inline">
-                                                {{ method_field('DELETE') }}
-                                                {{ csrf_field() }}
-                                                <button type="submit" class="btn btn-danger btn-sm" title="Delete Student" onclick="return confirm('Confirm delete?')"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button>
+                                            <form style="display:inline"
+                                                @submit.prevent="$inertia.delete(`#`)">
+                                                <button type="submit" class="btn btn-danger btn-sm"
+                                                    title="Delete Student" onclick="return confirm('Confirm delete?')">
+                                                    <i class="fa fa-trash-o" aria-hidden="true"></i> Delete
+                                                </button>
                                             </form>
+
                                         </td>
                                     </tr>
                                 </tbody>
