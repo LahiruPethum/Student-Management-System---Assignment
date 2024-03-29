@@ -22,6 +22,7 @@ const handleFileUpload = (event) => {
 </script>
 
 <template>
+
     <Head title="Dashboard" />
     <AuthenticatedLayout>
         <template #header>
@@ -33,16 +34,25 @@ const handleFileUpload = (event) => {
                     <div class="card-header">Edit student</div>
                     <div class="card-body">
                         <form @submit.prevent="submit" enctype="multipart/form-data">
-                            <label>Name</label><br>
-                            <input type="text" v-model="form.name" class="form-control" required><br>
+                            <div class="form-group">
+                                <label>Name</label><br>
+                                <input type="text" v-model="form.name" class="form-control" >
+                                <span v-if="form.errors.name" class="text-danger">{{ form.errors.name }}</span>
+                            </div><br />
 
-                            <label>Date of Birth</label><br>
-                            <input type="date" v-model="form.dob" required><br><br>
+                            <div class="form-group">
+                                <label>Date of Birth</label><br>
+                                <input type="date" v-model="form.dob" ><br>
+                                <span v-if="form.errors.name" class="text-danger">{{ form.errors.dob }}</span>
+                            </div><br />
 
-                            <label>Image</label><br>
-                            <input type="file" @change="handleFileUpload"><br><br><br>
+                            <div class="form-group">
+                                <label>Image</label><br>
+                                <input type="file" @change="handleFileUpload"><br><br><br>
+                            </div><br />
 
-                            <input type="submit" value="Update" class="btn btn-success"><br>
+                            <input type="submit" value="Update" class="btn btn-success">
+
                         </form>
                     </div>
                 </div>

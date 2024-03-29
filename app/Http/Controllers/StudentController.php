@@ -38,7 +38,7 @@ class StudentController extends Controller
         $rules = [
             'name' => 'required|string|max:255',
             'dob' => 'required|date',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ];
 
         $validator = Validator::make($request->all(), $rules);

@@ -54,23 +54,23 @@ const students = ref(props.students);
                                         
                                         <td>
                                             <a :href="`/student/${student.id}`" class="btn btn-sm"
-                                                :class="student.status ? 'btn-danger' : 'btn-success'">
+                                                :class="student.status ? 'btn-danger' : 'btn-success'" style="margin: 2px;">
                                                 {{ student.status ? 'Inactive' : 'Active' }}
                                             </a>
-                                            <Link :href="`/student/${student.id}/show`" title="View Student" style="margin: 5px;">
+                                            <Link :href="`/student/${student.id}/show`" title="View Student" style="margin: 2px;">
                                             <button class="btn btn-info btn-sm">
                                                 <i class="fa fa-eye" aria-hidden="true"></i> View
                                             </button>
                                             </Link>
-                                            <Link :href="`/student/${student.id}/edit`" title="Edit Student" style="margin: 5px;">
+                                            <Link :href="`/student/${student.id}/edit`" title="Edit Student" style="margin: 2px;">
                                             <button class="btn btn-primary btn-sm">
                                                 <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit
                                             </button>
                                             </Link>
                                             <form style="display:inline"
                                                 @submit.prevent="$inertia.delete(`/student/${student.id}`)" >
-                                                <button type="submit" class="btn btn-danger btn-sm"
-                                                    title="Delete Student" onclick="return confirm('Confirm delete?')">
+                                                <button type="submit" class="btn btn-danger btn-sm" 
+                                                    title="Delete Student" onclick="return confirm('Confirm delete?')" style="margin: 2px;">
                                                     <i class="fa fa-trash-o" aria-hidden="true"></i> Delete
                                                 </button>
                                             </form>

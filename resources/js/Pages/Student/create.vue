@@ -10,7 +10,7 @@ const form = useForm({
 });
 
 function submit() {
-  form.post('/student/store')
+    form.post('/student/store');
 }
 </script>
 
@@ -28,16 +28,22 @@ function submit() {
                         <form @submit.prevent="submit" enctype="multipart/form-data">
                             <div class="form-group">
                                 <label for="name">Name</label>
-                                <input type="text" v-model="form.name" id="name" class="form-control" required>
+                                <input type="text" v-model="form.name" id="name" class="form-control" >
+                                <span v-if="form.errors.name" class="text-danger">{{ form.errors.name }}</span>
+
                             </div><br/>
                             
                             <div class="form-group">
                                 <label for="dob">Date of Birth</label>
                                 <input type="date" v-model="form.dob" id="dob" class="form-control">
+                                <span v-if="form.errors.dob" class="text-danger">{{ form.errors.dob }}</span>
+
                             </div><br/>
                             <div class="form-group">
                                 <label for="image">Image</label>
                                 <input type="file" id="image" @input="form.image = $event.target.files[0]" class="form-control">
+                                <span v-if="form.errors.image" class="text-danger">{{ form.errors.image }}</span>
+
                             </div><br/>
                             <button type="submit" class="btn btn-success">Save</button>
                         </form>
