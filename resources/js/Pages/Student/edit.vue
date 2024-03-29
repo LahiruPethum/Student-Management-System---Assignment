@@ -3,9 +3,10 @@ import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import { Head } from '@inertiajs/vue3';
 import { defineProps } from 'vue';
 import { useForm } from '@inertiajs/vue3';
+import { useToast } from "vue-toastification";
 
 const props = defineProps(['student']);
-
+const toast = useToast();
 const form = useForm({
     name: props.student.name,
     dob: props.student.dob,
@@ -13,12 +14,17 @@ const form = useForm({
 });
 
 function submit() {
-    form.post(`/student/${props.student.id}/update`)
+    form.post(`/student/${props.student.id}/update`, {
+        onSuccess: () => {
+            toast.success('Student is updated successfully..!')
+        }
+    })
 }
 
 const handleFileUpload = (event) => {
     form.image = event.target.files[0];
 };
+
 </script>
 
 <template>

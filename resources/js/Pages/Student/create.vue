@@ -2,6 +2,11 @@
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import { Head } from '@inertiajs/vue3';
 import { useForm } from '@inertiajs/vue3';
+import { useToast } from "vue-toastification";
+
+
+const toast = useToast();
+
 
 const form = useForm({
     name: null,
@@ -10,8 +15,13 @@ const form = useForm({
 });
 
 function submit() {
-    form.post('/student/store');
+    form.post('/student/store', {
+        onSuccess: () => {
+            toast.success('Student is created successfully..!')
+        }
+    });
 }
+
 </script>
 
 <template>
