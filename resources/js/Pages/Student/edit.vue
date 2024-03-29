@@ -30,7 +30,7 @@ const handleFileUpload = (event) => {
         <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="card">
-                    <div class="card-header">Contact Us Page</div>
+                    <div class="card-header">Edit student</div>
                     <div class="card-body">
                         <form @submit.prevent="submit" enctype="multipart/form-data">
                             <label>Name</label><br>
