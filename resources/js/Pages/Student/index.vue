@@ -49,13 +49,14 @@ const students = ref(props.students);
                                         <td>{{ index + 1 }}</td>
                                         <td>{{ student.name }}</td>
                                         <td>{{ student.dob }}</td>
+                                        <td><a :class="`badge text-bg-${student && student.status === 1 ? 'success' : 'danger'}`">
+                                            {{ student ? (student.status ? 'Active' : 'Inactive') : 'Loading...' }}</a></td>
+                                        
                                         <td>
                                             <a :href="`/student/${student.id}`" class="btn btn-sm"
                                                 :class="student.status ? 'btn-danger' : 'btn-success'">
                                                 {{ student.status ? 'Inactive' : 'Active' }}
                                             </a>
-                                        </td>
-                                        <td>
                                             <Link :href="`/student/${student.id}/show`" title="View Student" style="margin: 5px;">
                                             <button class="btn btn-info btn-sm">
                                                 <i class="fa fa-eye" aria-hidden="true"></i> View

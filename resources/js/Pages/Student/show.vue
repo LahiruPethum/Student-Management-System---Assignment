@@ -20,10 +20,8 @@
                             <p class="card-title">Name : {{ student.name }}</p>
                             <p class="card-text">Date of Birth : {{ student ? student.dob : 'Loading...' }}</p>
                             <p class="card-text">Age : {{ age }}</p>
-                            <p :class="student && student.status === 1 ? 'text-success' : 'text-danger'"
-                                style="font-size: 15px; font-weight: 900;">
-                                {{ student ? (student.status ? 'Active' : 'Inactive') : 'Loading...' }}
-                            </p>
+                            <a :class="`badge text-bg-${student && student.status === 1 ? 'success' : 'danger'}`">
+                                            {{ student ? (student.status ? 'Active' : 'Inactive') : 'Loading...' }}</a>
 
                         </div>
                     </div>
