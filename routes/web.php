@@ -40,6 +40,8 @@ Route::middleware('auth')->group(function () {
     Route::post('/student/store', [StudentController::class, 'store']);
     Route::get('/student/{id}', [StudentController::class, 'updateStatus']);
     Route::get('/student/{id}/show', [StudentController::class, 'show']);
+    Route::get('/student/{id}/edit', [StudentController::class, 'edit']);
+    Route::post('/student/{id}/update', [StudentController::class, 'update']);
 
 
 });

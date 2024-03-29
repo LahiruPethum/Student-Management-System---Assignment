@@ -75,4 +75,53 @@ class StudentController extends Controller
             'age' => $age
         ]);
     }
+
+    public function edit(string $id)
+    {
+        $student = Student::findOrFail($id);
+        return Inertia::render('Student/edit', [
+            'student' => $student
+        ]);
+    }
+
+    public function update(Request $request, string $id): RedirectResponse
+    {
+        $student = Student::findOrFail($id);
+
+        $rules = [
+            'name' => 'required|string|max:255',
+            'dob' => 'required|date',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ];
+
+        $validator = Validator::make($request->all(), $rules);
+
+        if ($validator->fails()) {
+            return redirect()->back()
+                ->withErrors($validator)
+                ->withInput();
+        }
+
+        $input = $validator->validated();
+
+        if ($request->hasFile('image')) {
+            if ($student->image) {
+                unlink(public_path('users/' . $student->image));
+            }
+            $file = $request->file('image');
+            $filename = Str::random(10) . '.' . $file->extension();
+            $file->move(public_path('users'), $filename);
+            $input['image'] = $filename;
+        }
+
+        $student->update([
+            'name' => $input['name'], // Always include the name field
+            'dob' => $input['dob'],
+            'image' => $input['image'] ?? $student->image, // Use existing image if no new image is uploaded
+        ]);
+
+        return redirect('students')->with('success', 'Student Updated Successfully');
+        // dd($request->all());
+
+    }
 }

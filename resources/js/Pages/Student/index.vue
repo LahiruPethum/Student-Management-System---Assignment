@@ -56,18 +56,18 @@ const students = ref(props.students);
                                             </a>
                                         </td>
                                         <td>
-                                            <Link :href="`/student/${student.id}/show`" title="View Student">
+                                            <Link :href="`/student/${student.id}/show`" title="View Student" style="margin: 5px;">
                                             <button class="btn btn-info btn-sm">
                                                 <i class="fa fa-eye" aria-hidden="true"></i> View
                                             </button>
                                             </Link>
-                                            <Link :href="`#`" title="Edit Student">
+                                            <Link :href="`/student/${student.id}/edit`" title="Edit Student" style="margin: 5px;">
                                             <button class="btn btn-primary btn-sm">
                                                 <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit
                                             </button>
                                             </Link>
                                             <form style="display:inline"
-                                                @submit.prevent="$inertia.delete(`#`)">
+                                                @submit.prevent="$inertia.delete(`#`)" >
                                                 <button type="submit" class="btn btn-danger btn-sm"
                                                     title="Delete Student" onclick="return confirm('Confirm delete?')">
                                                     <i class="fa fa-trash-o" aria-hidden="true"></i> Delete
