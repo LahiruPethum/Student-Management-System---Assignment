@@ -42,6 +42,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/student/{id}/show', [StudentController::class, 'show']);
     Route::get('/student/{id}/edit', [StudentController::class, 'edit']);
     Route::post('/student/{id}/update', [StudentController::class, 'update']);
+    Route::delete('/student/{id}', [StudentController::class, 'destroy']);
 
 
 });

@@ -124,4 +124,20 @@ class StudentController extends Controller
         // dd($request->all());
 
     }
+
+    public function destroy(string $id)
+    {
+        $student = Student::findOrFail($id);
+    
+        if ($student->image) {
+            $imagePath = public_path('users/' . $student->image);
+            if (file_exists($imagePath)) {
+                unlink($imagePath);
+            }
+        }
+    
+        $student->delete();
+    
+        return Inertia::location(route('students'));
+    }
 }

@@ -67,7 +67,7 @@ const students = ref(props.students);
                                             </button>
                                             </Link>
                                             <form style="display:inline"
-                                                @submit.prevent="$inertia.delete(`#`)" >
+                                                @submit.prevent="$inertia.delete(`/student/${student.id}`)" >
                                                 <button type="submit" class="btn btn-danger btn-sm"
                                                     title="Delete Student" onclick="return confirm('Confirm delete?')">
                                                     <i class="fa fa-trash-o" aria-hidden="true"></i> Delete
