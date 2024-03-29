@@ -56,7 +56,7 @@ const students = ref(props.students);
                                             </a>
                                         </td>
                                         <td>
-                                            <Link :href="`#`" title="View Student">
+                                            <Link :href="`/student/${student.id}/show`" title="View Student">
                                             <button class="btn btn-info btn-sm">
                                                 <i class="fa fa-eye" aria-hidden="true"></i> View
                                             </button>

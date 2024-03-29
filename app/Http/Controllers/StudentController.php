@@ -8,7 +8,7 @@ use Illuminate\Support\Str;
 use Inertia\Inertia;
 use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
-
+use Carbon\Carbon;
 
 class StudentController extends Controller
 {
@@ -65,4 +65,14 @@ class StudentController extends Controller
         return redirect('students')->with('success', 'Student Added Successfully');
     }
 
+    public function show(string $id)
+    {
+        $student = Student::findOrFail($id);
+        $dateOfBirth = Carbon::parse($student->dob);
+        $age = $dateOfBirth->diffInYears(Carbon::now());
+        return Inertia::render('Student/show', [
+            'student' => $student,
+            'age' => $age
+        ]);
+    }
 }
