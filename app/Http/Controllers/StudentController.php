@@ -64,4 +64,5 @@ class StudentController extends Controller
 
         return redirect('students')->with('success', 'Student Added Successfully');
     }
+
 }

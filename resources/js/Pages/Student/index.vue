@@ -50,7 +50,7 @@ const students = ref(props.students);
                                         <td>{{ student.name }}</td>
                                         <td>{{ student.dob }}</td>
                                         <td>
-                                            <a :href="`#`" class="btn btn-sm"
+                                            <a :href="`/student/${student.id}`" class="btn btn-sm"
                                                 :class="student.status ? 'btn-danger' : 'btn-success'">
                                                 {{ student.status ? 'Inactive' : 'Active' }}
                                             </a>
