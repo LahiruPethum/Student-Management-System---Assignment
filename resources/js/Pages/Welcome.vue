@@ -22,7 +22,7 @@ defineProps({
 <template>
     <Head title="Welcome" />
 
-    <div
+     <div
         class="relative sm:flex sm:justify-center sm:items-center min-h-screen bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white"
     >
         <div v-if="canLogin" class="sm:fixed sm:top-0 sm:right-0 p-6 text-end">
@@ -47,9 +47,9 @@ defineProps({
                     >Register</Link
                 >
             </template>
-        </div>
+        </div> </div>
 
-        <div class="max-w-7xl mx-auto p-6 lg:p-8">
+        <!--<div class="max-w-7xl mx-auto p-6 lg:p-8">
             <div class="flex justify-center">
                 <svg
                     viewBox="0 0 62 65"
@@ -298,7 +298,7 @@ defineProps({
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 </template>
 
 <style>

@@ -28,7 +28,7 @@ const students = ref(props.students);
                     </div>
                     <div class="card-body">
                         <Link href="/student/create" class="btn btn-success btn-sm" title="Add New Student">
-                        <i class="fa fa-plus" aria-hidden="true"></i> Add New
+                        <i class="fa fa-plus" aria-hidden="true"></i> Add New Student
                         </Link>
 
                         <br />

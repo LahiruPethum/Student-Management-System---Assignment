@@ -105,7 +105,7 @@ class StudentController extends Controller
         $input = $validator->validated();
 
         if ($request->hasFile('image')) {
-            if ($student->image) {
+            if ($student->image && file_exists(public_path('users/' . $student->image))) {
                 unlink(public_path('users/' . $student->image));
             }
             $file = $request->file('image');
