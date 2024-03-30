@@ -48,7 +48,7 @@ defineProps({
             
             </div>
             <div class="heding">
-                    <p >Student Management System</p>
+                    <p >Students Management System</p>
                 </div>
         </div>
     </div>
